@@ -2,6 +2,10 @@ const AuthController = () => import('#controllers/auth_controller')
 import { middleware } from '#start/kernel'
 import router from '@adonisjs/core/services/router'
 
+router.get('/', async function () {
+    return { api: 'Api is working' }
+})
+
 router.post('/auth/login', [AuthController, 'login'])
 router.post('/auth/register', [AuthController, 'register'])
 router.get('/auth/email/verify/:email/:id', [AuthController, 'verifyEmail']).as('verifyEmail')
